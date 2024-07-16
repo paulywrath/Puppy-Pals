@@ -8,13 +8,18 @@ function App() {
 
   console.log("puppyList: ", puppyList);
 
+  const [featPupId, setFeatPupId] = useState(null)
+
   return (
     <div className="App">
       {
         puppies.map((puppy) => {
-             return <p key={puppy.id}>{puppy.name}</p>;
+             return <p onClick={()=>{ setFeatPupId(puppy.id)}} key={puppy.id}>{puppy.name}</p>;
            })
        }
+
+      { featPupId && <p>{ featPupId }</p> } 
+
     </div>
   );
 }
